@@ -1,0 +1,52 @@
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <dirent.h>
+#include <unistd.h>
+
+int main()
+{
+    pid_t c1, c2, c3;
+    int j3, j1[4];
+    char value[256];
+    c1 = fork();
+    if(!c1)
+      execlp("unzip","unzip", "campur2.zip", NULL);
+        int p2;
+        while(wait(&j3)>0);
+        pipe(j1);
+        pipe(j1+2);
+        c2 = fork();
+        if(!c2){
+          close(j1[0]);
+          close(j1[2]);
+          close(j1[3]);
+          dup2(j1[1], STDOUT_FILENO);
+          close(j1[1]);
+          execlp("ls", "ls" ,"campur2", NULL);
+        }
+            c3 = fork();
+            if(!c3){
+              close(j1[1]);
+              dup2(j1[0],STDIN_FILENO);
+              close(j1[0]);
+              close(j1[2]);
+              dup2(j1[3],STDOUT_FILENO);
+              close(j1[3]);
+              execlp("grep", "grep" ,".txt$", NULL);
+            }
+              close(j1[1]);
+              close(j1[0]);
+              close(j1[3]);
+              int x = read(j1[2],value,sizeof(value));
+              close(j1[2]);
+              FILE* output;
+              output = fopen("daftar.txt","w+");
+              fputs(value,output);
+              fclose(output);
+}
