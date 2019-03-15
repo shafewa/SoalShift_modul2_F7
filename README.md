@@ -28,6 +28,17 @@ bisa membandingkannya dengan yang ingin kita deteksi, jika saat dibandingkan sam
 yang kita simpan tadi, maka delete file elenku, dari direktori path yang sudah disimpan.
 
 Nomor 3
+Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”. 
+Buatlah program C yang dapat :
+i)  mengekstrak file zip tersebut.
+ii) menyimpan daftar file dari folder “campur2” yang memiliki ekstensi .txt ke dalam file daftar.txt. 
+Catatan:  
+Gunakan fork dan exec.
+Gunakan minimal 3 proses yang diakhiri dengan exec.
+Gunakan pipe
+Pastikan file daftar.txt dapat diakses dari text editor
+Jawab:
+langkah awal, kita membuat fungsi 'child1' untuk mengextract file 'campur2.zip' dengan coment 'exaclp("unzip","unzip", "campur2.zip")' trus membuat 'child2' dengan fungsi untuk membaca isi folder dan 'child3' membuat fungsi untuk membuat daftar.txt
 
 Nomor 4
 
